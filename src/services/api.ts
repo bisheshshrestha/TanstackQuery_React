@@ -8,6 +8,10 @@ export const getTodosIds = async () => {
     return (await axiosInstance.get<Todo[]>("todos")).data.map((todo) => todo.id);
 };
 
-export const getTodos = async (id:number) =>{
+export const getTodo = async (id:number) => {
     return (await axiosInstance.get<Todo>(`todos/${id}`)).data;
+}
+
+export const createTodo = async (data:Todo) => {
+    await axiosInstance.post("todos",data);
 }
