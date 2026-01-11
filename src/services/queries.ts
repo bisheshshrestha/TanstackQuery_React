@@ -12,7 +12,7 @@ export function useTodos(ids:(number | undefined)[] | undefined){
     return useQueries({
         queries:(ids ?? []).map((id)=>{
             return {
-                queryKey: ["todos",id],
+                queryKey: ["todos",{id}],
                 queryFn:() => getTodo(id!),
             }
         })
